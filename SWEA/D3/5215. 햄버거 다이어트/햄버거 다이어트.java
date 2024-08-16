@@ -42,16 +42,20 @@ public class Solution {
 			return;
 		}
 		if (idx == n) {
-			if (k <= l) {
-				max = Math.max(max, re);
-		
+			for (int i = 0; i < sel.length; i++) {
+				if (sel[i] = true) {
+					if (k <= l) {
+						max = Math.max(max, re);
+					}
+				}
 			}
 			return;
 		}
-
-		// o
+		
+		sel[idx] = true;
 		r(idx + 1, k + map[idx][1], re + map[idx][0]);
 		// x
+		sel[idx] = false;
 		r(idx + 1, k, re);
 
 	}
