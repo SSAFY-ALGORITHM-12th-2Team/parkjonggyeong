@@ -28,7 +28,7 @@ public class Main {
             return;
         }
         int root = input.get(start);
-        int mid = end + 1;
+        int mid = start + 1;
         for (int i = start + 1; i <= end; i++) {
             if (input.get(i) > root) {
                 mid = i;
