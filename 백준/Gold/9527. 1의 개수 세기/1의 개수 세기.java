@@ -18,7 +18,7 @@ public class Main {
         if (n <= 0) return 0;
         
         long highestBit = Long.highestOneBit(n);
-        long bitCount = (highestBit >> 1) * Long.bitCount(highestBit - 1) + (n - highestBit + 1) +- countBits(n - highestBit);
+        long bitCount = (highestBit >> 1) * Long.bitCount(highestBit - 1) + (n - highestBit + 1) + countBits(n - highestBit);
         return bitCount;
     }
 }
