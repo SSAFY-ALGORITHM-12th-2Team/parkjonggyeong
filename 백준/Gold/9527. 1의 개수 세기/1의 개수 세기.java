@@ -13,21 +13,15 @@ public class Main {
         long result = countBits(b) - countBits(a - 1);
         System.out.println(result);
     }
-    
+
     private static long countBits(long n) {
         if (n <= 0) return 0;
+        
+        long highestBit = Long.highestOneBit(n);
+        long bitCount = (highestBit >> 1) * Long.bitCount(highestBit - 1);
+        bitCount += (n - highestBit + 1);
+        bitCount += countBits(n - highestBit);
 
-        long k = largestPowerOf2(n);
-        long count = k * (1L << (k - 1)) + (n - (1L << k) + 1) + countBits(n - (1L << k));
-
-        return count;
-    }
-    
-    private static long largestPowerOf2(long n) {
-        long k = 0;
-        while ((1L << k) <= n) {
-            k++;
-        }
-        return k - 1;
+        return bitCount;
     }
 }
